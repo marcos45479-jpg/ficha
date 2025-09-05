@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Cadastro de Proprietário</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #f0f4f8;
+        }
+        #loadingMessage {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+    <div class="max-w-3xl mx-auto bg-white p-3 sm:p-4 rounded-xl shadow-lg" id="ficha">
+        <div class="text-center mb-4">
+            <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">
+                <span class="text-lg font-medium text-orange-400 block mb-1">MC Imobiliária</span>
+                Ficha de Cadastro de Proprietário
+            </h1>
+        </div>
+
+        <div class="border-b-2 border-gray-400 pb-2 mb-4">
+            <h2 class="text-lg font-semibold text-gray-700">Dados do Proprietário</h2>
+        </div>
+        <form class="space-y-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div>
+                    <label for="nomeProprietario" class="block text-sm font-medium text-gray-700">Nome Completo</label>
+                    <input type="text" id="nomeProprietario" name="nomeProprietario" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+                <div>
+                    <label for="cpfProprietario" class="block text-sm font-medium text-gray-700">CPF/CNPJ</label>
+                    <input type="text" id="cpfProprietario" name="cpfProprietario" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                <div>
+                    <label for="rgProprietario" class="block text-sm font-medium text-gray-700">RG</label>
+                    <input type="text" id="rgProprietario" name="rgProprietario" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+                <div>
+                    <label for="orgaoExpeditorProprietario" class="block text-sm font-medium text-gray-700">Órgão Expedidor</label>
+                    <input type="text" id="orgaoExpeditorProprietario" name="orgaoExpeditorProprietario" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+                <div>
+                    <label for="dataNascimentoProprietario" class="block text-sm font-medium text-gray-700">Data de Nascimento</label>
+                    <input type="date" id="dataNascimentoProprietario" name="dataNascimentoProprietario" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div>
+                    <label for="estadoCivilProprietario" class="block text-sm font-medium text-gray-700">Estado Civil</label>
+                    <input type="text" id="estadoCivilProprietario" name="estadoCivilProprietario" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+                <div>
+                    <label for="profissaoProprietario" class="block text-sm font-medium text-gray-700">Profissão</label>
+                    <input type="text" id="profissaoProprietario" name="profissaoProprietario" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div>
+                    <label for="telPrincipalProprietario" class="block text-sm font-medium text-gray-700">Telefone Principal</label>
+                    <input type="tel" id="telPrincipalProprietario" name="telPrincipalProprietario" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+                <div>
+                    <label for="emailProprietario" class="block text-sm font-medium text-gray-700">E-mail</label>
+                    <input type="email" id="emailProprietario" name="emailProprietario" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 gap-2">
+                <div>
+                    <label for="enderecoProprietario" class="block text-sm font-medium text-gray-700">Endereço Residencial</label>
+                    <input type="text" id="enderecoProprietario" name="enderecoProprietario" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                <div>
+                    <label for="cidadeProprietario" class="block text-sm font-medium text-gray-700">Cidade</label>
+                    <input type="text" id="cidadeProprietario" name="cidadeProprietario" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+                <div>
+                    <label for="estadoProprietario" class="block text-sm font-medium text-gray-700">Estado</label>
+                    <input type="text" id="estadoProprietario" name="estadoProprietario" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+                <div>
+                    <label for="cepProprietario" class="block text-sm font-medium text-gray-700">CEP</label>
+                    <input type="text" id="cepProprietario" name="cepProprietario" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+            </div>
+
+            <div class="border-b-2 border-gray-400 pb-2 mb-4 mt-4">
+                <h2 class="text-lg font-semibold text-gray-700">Dados do Cônjuge</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div>
+                    <label for="nomeConjuge" class="block text-sm font-medium text-gray-700">Nome Completo do Cônjuge</label>
+                    <input type="text" id="nomeConjuge" name="nomeConjuge" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+                <div>
+                    <label for="cpfConjuge" class="block text-sm font-medium text-gray-700">CPF/CNPJ do Cônjuge</label>
+                    <input type="text" id="cpfConjuge" name="cpfConjuge" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                <div>
+                    <label for="rgConjuge" class="block text-sm font-medium text-gray-700">RG do Cônjuge</label>
+                    <input type="text" id="rgConjuge" name="rgConjuge" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+                <div>
+                    <label for="orgaoExpeditorConjuge" class="block text-sm font-medium text-gray-700">Órgão Expedidor do RG</label>
+                    <input type="text" id="orgaoExpeditorConjuge" name="orgaoExpeditorConjuge" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+                <div>
+                    <label for="dataNascimentoConjuge" class="block text-sm font-medium text-gray-700">Data de Nascimento do Cônjuge</label>
+                    <input type="date" id="dataNascimentoConjuge" name="dataNascimentoConjuge" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div>
+                    <label for="profissaoConjuge" class="block text-sm font-medium text-gray-700">Profissão do Cônjuge</label>
+                    <input type="text" id="profissaoConjuge" name="profissaoConjuge" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+            </div>
+
+            <div class="border-b-2 border-gray-400 pb-2 mb-4 mt-4">
+                <h2 class="text-lg font-semibold text-gray-700">Dados Bancários para Repasse</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                <div>
+                    <label for="banco" class="block text-sm font-medium text-gray-700">Banco</label>
+                    <input type="text" id="banco" name="banco" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+                <div>
+                    <label for="agencia" class="block text-sm font-medium text-gray-700">Agência</label>
+                    <input type="text" id="agencia" name="agencia" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+                <div>
+                    <label for="conta" class="block text-sm font-medium text-gray-700">Conta Corrente/Poupança</label>
+                    <input type="text" id="conta" name="conta" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 gap-2">
+                <div>
+                    <label for="chavePix" class="block text-sm font-medium text-gray-700">Chave Pix (se preferir)</label>
+                    <input type="text" id="chavePix" name="chavePix" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                </div>
+            </div>
+        </form>
+
+        <div class="mt-4">
+            <button id="saveButton" onclick="generatePDF()" class="bg-orange-400 hover:bg-orange-500 text-white font-bold py-1.5 px-3 rounded-lg focus:outline-none focus:shadow-outline w-full text-sm transition-colors duration-200">
+                Salvar como PDF
+            </button>
+        </div>
+    </div>
+
+    <div id="loadingMessage">Gerando PDF...</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        window.jsPDF = window.jspdf.jsPDF;
+
+        window.generatePDF = function() {
+            const form = document.querySelector('form');
+            const button = document.getElementById('saveButton');
+            const loading = document.getElementById('loadingMessage');
+
+            // Mostra a mensagem de carregamento e desativa o botão
+            button.disabled = true;
+            loading.style.display = 'block';
+
+            // Cria um novo documento PDF
+            const doc = new jsPDF();
+            let y = 10; // Posição inicial Y
+
+            // Adiciona o título do formulário
+            doc.setFont('times', 'normal');
+            doc.setFontSize(10);
+            doc.text("MC Imobiliária", 105, y, null, null, 'center');
+            y += 8;
+            doc.setFontSize(16);
+            doc.setFont('times', 'bold');
+            doc.text("Ficha de Cadastro de Proprietário", 105, y, null, null, 'center');
+            y += 15;
+
+            // Função para adicionar um título de seção
+            function addSectionTitle(title) {
+                doc.setFontSize(14);
+                doc.setFont('times', 'bold');
+                doc.text(title, 10, y);
+                y += 2;
+                doc.setLineWidth(0.5);
+                doc.line(10, y, 200, y);
+                y += 8;
+
+                if (y > 280) { // Adiciona nova página se o título estiver no final
+                    doc.addPage();
+                    y = 10;
+                }
+            }
+
+            // Função para adicionar uma linha com múltiplos campos, respeitando a diagramação
+            function addMultiColRow(items) {
+                const page_width = doc.internal.pageSize.getWidth();
+                const margin = 10;
+                const usable_width = page_width - (margin * 2);
+                const col_width = usable_width / items.length;
+                let max_lines = 0;
+                const line_height = 5; // Altura de uma linha de texto
+
+                // Calcula a altura máxima da linha
+                items.forEach(item => {
+                    if (item.value) {
+                        doc.setFontSize(12);
+                        doc.setFont('times', 'normal');
+                        const label_width = doc.getTextWidth(item.label + ": ");
+                        const value_width = col_width - label_width - 2;
+                        if (value_width > 0) {
+                            const value_lines = doc.splitTextToSize(item.value, value_width);
+                            if (value_lines.length > max_lines) {
+                                max_lines = value_lines.length;
+                            }
+                        }
+                    }
+                });
+                if (max_lines === 0) max_lines = 1;
+
+                // Desenha o texto
+                items.forEach((item, index) => {
+                    if (item.value) {
+                        const x = margin + (index * col_width);
+                        const label_width = doc.getTextWidth(item.label + ": ");
+                        
+                        doc.setFontSize(12);
+                        doc.setFont('times', 'normal');
+                        doc.text(item.label + ":", x, y);
+
+                        doc.setFont('times', 'bold');
+                        const value_width = col_width - label_width - 2;
+                        if (value_width > 0){
+                            const value_lines = doc.splitTextToSize(item.value, value_width);
+                            doc.text(value_lines, x + label_width, y);
+                        }
+                    }
+                });
+
+                y += (max_lines * line_height) + 3; // Avança o y
+
+                if (y > 280) { // Adiciona nova página se necessário
+                    doc.addPage();
+                    y = 10;
+                }
+            }
+
+
+            // Dados do Proprietário
+            addSectionTitle("Dados do Proprietário");
+            addMultiColRow([
+                { label: "Nome Completo", value: document.getElementById('nomeProprietario').value}
+            ]);
+            addMultiColRow([
+                { label: "CPF/CNPJ", value: document.getElementById('cpfProprietario').value}
+            ]);
+            addMultiColRow([
+                { label: "RG", value: document.getElementById('rgProprietario').value },
+                { label: "Órgão Expedidor", value: document.getElementById('orgaoExpeditorProprietario').value },
+                { label: "Nascimento", value: document.getElementById('dataNascimentoProprietario').value }
+            ]);
+            addMultiColRow([
+                { label: "Estado Civil", value: document.getElementById('estadoCivilProprietario').value },
+                { label: "Profissão", value: document.getElementById('profissaoProprietario').value }
+            ]);
+            addMultiColRow([
+                { label: "Telefone Principal", value: document.getElementById('telPrincipalProprietario').value },
+                { label: "E-mail", value: document.getElementById('emailProprietario').value }
+            ]);
+            addMultiColRow([
+                { label: "Endereço Residencial", value: document.getElementById('enderecoProprietario').value }
+            ]);
+            addMultiColRow([
+                { label: "Cidade", value: document.getElementById('cidadeProprietario').value },
+                { label: "Estado", value: document.getElementById('estadoProprietario').value },
+                { label: "CEP", value: document.getElementById('cepProprietario').value }
+            ]);
+
+            y += 5; // Espaço entre seções
+            
+            // Dados do Cônjuge
+            addSectionTitle("Dados do Cônjuge");
+            addMultiColRow([
+                { label: "Nome Completo", value: document.getElementById('nomeConjuge').value}
+            ]);
+            addMultiColRow([
+                { label: "CPF/CNPJ", value: document.getElementById('cpfConjuge').value }
+            ]);
+            addMultiColRow([
+                { label: "RG", value: document.getElementById('rgConjuge').value },
+                { label: "Órgão Expedidor", value: document.getElementById('orgaoExpeditorConjuge').value },
+                { label: "Nascimento", value: document.getElementById('dataNascimentoConjuge').value }
+            ]);
+            addMultiColRow([
+                { label: "Profissão", value: document.getElementById('profissaoConjuge').value }
+            ]);
+            
+            y += 5;
+
+            // Dados Bancários
+            addSectionTitle("Dados Bancários para Repasse");
+            addMultiColRow([
+                { label: "Banco", value: document.getElementById('banco').value },
+                { label: "Agência", value: document.getElementById('agencia').value },
+                { label: "Conta", value: document.getElementById('conta').value }
+            ]);
+            addMultiColRow([
+                { label: "Chave Pix", value: document.getElementById('chavePix').value }
+            ]);
+
+            // Salva o PDF
+            doc.save('Ficha_de_Cadastro_Proprietario.pdf');
+
+            // Limpa os campos do formulário
+            form.reset();
+
+            // Esconde a mensagem de carregamento e reativa o botão
+            loading.style.display = 'none';
+            button.disabled = false;
+        };
+    </script>
+</body>
+</html>
