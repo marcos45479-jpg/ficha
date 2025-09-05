@@ -185,6 +185,13 @@
     <script>
         window.jsPDF = window.jspdf.jsPDF;
 
+        // Função para formatar a data de YYYY-MM-DD para DD/MM/YYYY
+        function formatDate(dateString) {
+            if (!dateString) return "";
+            const [year, month, day] = dateString.split('-');
+            return `${day}/${month}/${year}`;
+        }
+
         window.generatePDF = function() {
             const form = document.querySelector('form');
             const button = document.getElementById('saveButton');
@@ -289,7 +296,7 @@
             addMultiColRow([
                 { label: "RG", value: document.getElementById('rgProprietario').value },
                 { label: "Órgão Expedidor", value: document.getElementById('orgaoExpeditorProprietario').value },
-                { label: "Nascimento", value: document.getElementById('dataNascimentoProprietario').value }
+                { label: "Nascimento", value: formatDate(document.getElementById('dataNascimentoProprietario').value) }
             ]);
             addMultiColRow([
                 { label: "Estado Civil", value: document.getElementById('estadoCivilProprietario').value },
@@ -321,7 +328,7 @@
             addMultiColRow([
                 { label: "RG", value: document.getElementById('rgConjuge').value },
                 { label: "Órgão Expedidor", value: document.getElementById('orgaoExpeditorConjuge').value },
-                { label: "Nascimento", value: document.getElementById('dataNascimentoConjuge').value }
+                { label: "Nascimento", value: formatDate(document.getElementById('dataNascimentoConjuge').value) }
             ]);
             addMultiColRow([
                 { label: "Profissão", value: document.getElementById('profissaoConjuge').value }
