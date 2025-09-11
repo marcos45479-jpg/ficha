@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ficha de Cadastro de Proprietário</title>
+        <!-- Chama a biblioteca primeiro para a criacao do PDF -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="proprietario.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="proprietario.css">
+    </head>
+    <body class="p-4 sm:p-8">
+        <div class="max-w-3xl mx-auto bg-white p-3 sm:p-4 rounded-xl shadow-lg" id="ficha">
+            <div class="text-center mb-4">
+                <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">
+                    <span class="text-lg font-medium text-orange-400 block mb-1">MC Imobiliária</span>
+                    Ficha de Cadastro de Proprietário
+                </h1>
+            </div>
+        
+            <div class="border-b-2 border-gray-400 pb-2 mb-4">
+                <h2 class="text-lg font-semibold text-gray-700">Dados do Proprietário</h2>
+            </div>
+            <form class="space-y-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <div>
+                        <label for="nomeProprietario" class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
+                        <input type="text" id="nomeProprietario" name="nomeProprietario" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                    <div>
+                        <label for="cpfProprietario" class="block text-sm font-medium text-gray-700">CPF/CNPJ <span class="text-red-500">*</span></label>
+                        <input type="text" id="cpfProprietario" name="cpfProprietario" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                </div>
+            
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                    <div>
+                        <label for="rgProprietario" class="block text-sm font-medium text-gray-700">RG <span class="text-red-500">*</span></label>
+                        <input type="text" id="rgProprietario" name="rgProprietario" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                    <div>
+                        <label for="orgaoExpeditorProprietario" class="block text-sm font-medium text-gray-700">Órgão Expedidor <span class="text-red-500">*</span></label>
+                        <input type="text" id="orgaoExpeditorProprietario" name="orgaoExpeditorProprietario" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                    <div>
+                        <label for="dataNascimentoProprietario" class="block text-sm font-medium text-gray-700">Data de Nascimento <span class="text-red-500">*</span></label>
+                        <input type="date" id="dataNascimentoProprietario" name="dataNascimentoProprietario" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                </div>
+            
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <div>
+                        <label for="estadoCivilProprietario" class="block text-sm font-medium text-gray-700">Estado Civil <span class="text-red-500">*</span></label>
+                        <input type="text" id="estadoCivilProprietario" name="estadoCivilProprietario" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                    <div>
+                        <label for="profissaoProprietario" class="block text-sm font-medium text-gray-700">Profissão <span class="text-red-500">*</span></label>
+                        <input type="text" id="profissaoProprietario" name="profissaoProprietario" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <div>
+                        <label for="telPrincipalProprietario" class="block text-sm font-medium text-gray-700">Telefone Principal <span class="text-red-500">*</span></label>
+                        <input type="tel" id="telPrincipalProprietario" name="telPrincipalProprietario" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                    <div>
+                        <label for="emailProprietario" class="block text-sm font-medium text-gray-700">E-mail <span class="text-red-500">*</span></label>
+                        <input type="email" id="emailProprietario" name="emailProprietario" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 gap-2">
+                    <div>
+                        <label for="enderecoProprietario" class="block text-sm font-medium text-gray-700">Endereço Residencial <span class="text-red-500">*</span></label>
+                        <input type="text" id="enderecoProprietario" name="enderecoProprietario" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                </div>
+            
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                    <div>
+                        <label for="cidadeProprietario" class="block text-sm font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
+                        <input type="text" id="cidadeProprietario" name="cidadeProprietario" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                    <div>
+                        <label for="estadoProprietario" class="block text-sm font-medium text-gray-700">Estado <span class="text-red-500">*</span></label>
+                        <input type="text" id="estadoProprietario" name="estadoProprietario" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                    <div>
+                        <label for="cepProprietario" class="block text-sm font-medium text-gray-700">CEP <span class="text-red-500">*</span></label>
+                        <input type="text" id="cepProprietario" name="cepProprietario" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                </div>
+            
+                <div class="border-b-2 border-gray-400 pb-2 mb-4 mt-4">
+                    <h2 class="text-lg font-semibold text-gray-700">Dados do Cônjuge</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <div>
+                        <label for="nomeConjuge" class="block text-sm font-medium text-gray-700">Nome Completo do Cônjuge</label>
+                        <input type="text" id="nomeConjuge" name="nomeConjuge" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                    <div>
+                        <label for="cpfConjuge" class="block text-sm font-medium text-gray-700">CPF/CNPJ do Cônjuge</label>
+                        <input type="text" id="cpfConjuge" name="cpfConjuge" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                </div>
+            
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                    <div>
+                        <label for="rgConjuge" class="block text-sm font-medium text-gray-700">RG do Cônjuge</label>
+                        <input type="text" id="rgConjuge" name="rgConjuge" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                    <div>
+                        <label for="orgaoExpeditorConjuge" class="block text-sm font-medium text-gray-700">Órgão Expedidor do RG</label>
+                        <input type="text" id="orgaoExpeditorConjuge" name="orgaoExpeditorConjuge" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                    <div>
+                        <label for="dataNascimentoConjuge" class="block text-sm font-medium text-gray-700">Data de Nascimento do Cônjuge</label>
+                        <input type="date" id="dataNascimentoConjuge" name="dataNascimentoConjuge" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <div>
+                        <label for="profissaoConjuge" class="block text-sm font-medium text-gray-700">Profissão do Cônjuge</label>
+                        <input type="text" id="profissaoConjuge" name="profissaoConjuge" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                </div>
+            
+                <div class="border-b-2 border-gray-400 pb-2 mb-4 mt-4">
+                    <h2 class="text-lg font-semibold text-gray-700">Dados Bancários para Repasse</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                    <div>
+                        <label for="banco" class="block text-sm font-medium text-gray-700">Banco <span class="text-red-500">*</span></label>
+                        <input type="text" id="banco" name="banco" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                    <div>
+                        <label for="agencia" class="block text-sm font-medium text-gray-700">Agência <span class="text-red-500">*</span></label>
+                        <input type="text" id="agencia" name="agencia" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                    <div>
+                        <label for="conta" class="block text-sm font-medium text-gray-700">Conta Corrente/Poupança <span class="text-red-500">*</span></label>
+                        <input type="text" id="conta" name="conta" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 gap-2">
+                    <div>
+                        <label for="chavePix" class="block text-sm font-medium text-gray-700">Chave Pix (se preferir)</label>
+                        <input type="text" id="chavePix" name="chavePix" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring-orange-400 sm:text-sm p-1.5">
+                    </div>
+                </div>
+            </form>
+        
+            <div class="mt-4 flex flex-col sm:flex-row gap-2">
+                <button id="saveButton" onclick="generatePDF()" class="bg-orange-400 hover:bg-orange-500 text-white font-bold py-1.5 px-3 rounded-lg focus:outline-none focus:shadow-outline text-sm transition-colors duration-200 w-full sm:w-1/2">
+                    Salvar como PDF
+                </button>
+                <button onclick="window.location.href='../index.html'" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1.5 px-3 rounded-lg focus:outline-none focus:shadow-outline text-sm transition-colors duration-200 w-full sm:w-1/2">
+                    Voltar ao Início
+                </button>
+            </div>
+        </div>
+    
+        <div id="loadingMessage">Gerando PDF...</div>
+    </body>
+</html>
